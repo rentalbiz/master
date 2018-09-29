@@ -6,9 +6,8 @@ const categoryschema = mongoose.Schema({
     name: String,
     description: String,
     categoryicon: String,
-    parentcategoryid: Number,
-    type: String
+    parentcategoryid: Number
 
 });
 
-module.exports = mongoose.model('data', categoryschema);
+module.exports = mongoose.model('category', categoryschema);
