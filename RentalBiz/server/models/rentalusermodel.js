@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const rentaluserschema = mongoose.Schema({
-    userID: Number,
     name: String,
     email: String,
     password: String,

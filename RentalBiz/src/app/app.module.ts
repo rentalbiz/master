@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +19,7 @@ import { PostadComponent } from './postad/postad.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { PostingsuccessComponent } from './postingsuccess/postingsuccess.component';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +27,7 @@ const routes: Routes = [
   { path: ':categoryname/products', component: ProductsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'postad', component: PostadComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'productdetail/:productid', component: ProductdetailComponent },
@@ -40,11 +46,12 @@ const routes: Routes = [
     PostadComponent,
     ProductdetailComponent,
     AboutusComponent,
-    PostingsuccessComponent
+    PostingsuccessComponent,
+    ForgetpasswordComponent
   ],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
+    BrowserModule,BrowserAnimationsModule,
+    RouterModule.forRoot(routes),HttpClientModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
