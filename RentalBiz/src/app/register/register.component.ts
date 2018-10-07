@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     this.model.isgmaillogin = false;
     this.model.isadmin = false;
     this._registerService.registeruser(this.model).subscribe(res => {
-      alert(res.message)
-    })
+      alert(res.message);
+    });
   }
 }

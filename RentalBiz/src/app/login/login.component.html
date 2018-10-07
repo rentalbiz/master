@@ -6,26 +6,36 @@
           <h3>
             Login
           </h3>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group is-empty">
               <div class="input-icon">
                 <i class="icon fa fa-user"></i>
-                <input type="text" id="sender-email" class="form-control" name="email" placeholder="Username">
+                <input type="text" id="sender-email" formControlName="email" 
+                 class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" 
+                  name="email" placeholder="Username">
               </div>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Username is required</div>
+            </div>
               <span class="material-input"></span>
             </div>
             <div class="form-group is-empty">
               <div class="input-icon">
                 <i class="icon fa fa-unlock-alt"></i>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" formControlName="password" 
+                placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
               </div>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
               <span class="material-input"></span>
             </div>
             <div class="checkbox">
               <input type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
               <label for="remember">Remember me</label>
             </div>
-            <button class="btn btn-common log-btn" (click)="checklogin(model)">Submit</button>
-      
+            <button class="btn btn-common log-btn" >Submit</button>
+          </form>
           <ul class="form-links">
             <li class="pull-left">
               <a routerLink="/register">Don't have an account?</a>
