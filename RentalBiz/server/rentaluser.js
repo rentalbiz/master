@@ -16,7 +16,7 @@ routes.get('/:userid', (req, res) => {
 });
 routes.post('/login', (req, res) => {
     RentalUser.find({ "email": req.body.email, "password": req.body.password }).exec().then(result => {
-        res.status(200).json((result.length==0)?false:{token:res._id});
+        res.status(200).json((result.length == 0) ? false : { token: res._id });
     });
 });
 routes.post('/register', (req, res) => {
@@ -38,9 +38,9 @@ routes.post('/register', (req, res) => {
 routes.post('/forgetpassword', (req, res) => {
     res.send({ message: "this will retreive user password" });
 });
-routes.post('/checkemailexist',(req,res)=>{
-    RentalUser.find({ "email": req.body.email}).exec().then(result => {
-        res.status(200).json((result.length==0)?false:true);
+routes.post('/checkemailexist', (req, res) => {
+    RentalUser.find({ "email": req.body.email }).exec().then(result => {
+        res.status(200).json((result.length == 0) ? false : true);
     });
 })
 

@@ -14,4 +14,7 @@ export class RegisterService {
   public registeruser(usermodel: any): Observable<any> {
     return this._http.post(environment.apiurl + "/user/register", usermodel);
   }
+  public checkemailexist(Email: string): Observable<any> {
+    return this._http.post(environment.apiurl + "/user/checkemailexist", {email:Email});
+  }
 }

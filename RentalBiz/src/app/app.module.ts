@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +20,7 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { PostingsuccessComponent } from './postingsuccess/postingsuccess.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { RegistersuccessComponent } from './register/registersuccess/registersuccess.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: ':categoryname/products', component: ProductsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'registrationsuccess', component: RegistersuccessComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'postad', component: PostadComponent },
   { path: 'aboutus', component: AboutusComponent },
@@ -47,11 +49,12 @@ const routes: Routes = [
     ProductdetailComponent,
     AboutusComponent,
     PostingsuccessComponent,
-    ForgetpasswordComponent
+    ForgetpasswordComponent,
+    RegistersuccessComponent
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,
-    RouterModule.forRoot(routes),HttpClientModule,FormsModule
+    RouterModule.forRoot(routes),HttpClientModule,FormsModule,ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
