@@ -21,6 +21,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { PostingsuccessComponent } from './postingsuccess/postingsuccess.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { RegistersuccessComponent } from './register/registersuccess/registersuccess.component';
+import { LeftCategoriesComponent } from './leftCategories/left-categories.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,7 +51,8 @@ const routes: Routes = [
     AboutusComponent,
     PostingsuccessComponent,
     ForgetpasswordComponent,
-    RegistersuccessComponent
+    RegistersuccessComponent,
+    LeftCategoriesComponent
   ],
   imports: [
     BrowserModule,BrowserAnimationsModule,
