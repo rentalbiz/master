@@ -77,11 +77,10 @@ routes.post('/saveadproduct', (req, res) => {
         active: true
     });
     adproductmodel.save().then(result => {
-        res.status(200).json({ message: "Product saved successfully", model: adproductmodel });
+        res.status(200).json({ message: "Product saved successfully", success: true });
     }, err => {
-        res.status(500).json(err);
+        res.status(500).json({message:err,success:true});
     })
-    res.send({ message: "it will save adproduct" });
 });
 
 module.exports = routes;

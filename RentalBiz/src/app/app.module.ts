@@ -3,7 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +24,8 @@ import { PostingsuccessComponent } from './postingsuccess/postingsuccess.compone
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { AuthGuard } from './_guards';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { RegistersuccessComponent } from './register/registersuccess/registersuccess.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -28,6 +33,7 @@ const routes: Routes = [
   { path: ':categoryname/products', component: ProductsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'registrationsuccess', component: RegistersuccessComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'postad', component: PostadComponent },
   { path: 'aboutus', component: AboutusComponent },
@@ -48,15 +54,17 @@ const routes: Routes = [
     ProductdetailComponent,
     AboutusComponent,
     PostingsuccessComponent,
-    ForgetpasswordComponent
+    ForgetpasswordComponent,
+    RegistersuccessComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
-    RouterModule.forRoot(routes), HttpClientModule, FormsModule, ReactiveFormsModule
+    RouterModule.forRoot(routes), HttpClientModule, FormsModule, ReactiveFormsModule,ToastrModule.forRoot()
   ],
   providers: [AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
   ],
   bootstrap: [AppComponent]
 })
