@@ -59,7 +59,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
-    RouterModule.forRoot(routes), HttpClientModule, FormsModule, ReactiveFormsModule,ToastrModule.forRoot()
+    RouterModule.forRoot(routes), HttpClientModule, FormsModule, ReactiveFormsModule, ToastrModule.forRoot()
   ],
   providers: [AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -23,10 +23,9 @@ export class RegisterComponent implements OnInit {
       if (!res) {
         this._registerService.registeruser(this.model).subscribe(ressuccess => {
           this._router.navigate(['/registrationsuccess']);
-        })
-      }
-      else {
-        this.toastr.error("email already exists !");
+        });
+      } else {
+        this.toastr.error('email already exists !');
       }
     });
 
